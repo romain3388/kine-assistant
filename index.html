@@ -2460,7 +2460,7 @@ const MUSCLE_TO_DB={
   trap:"trap",scm:"scm",masseter:"masseter",m1:"abdo",
 };
 
-function ExercicesTab({patientNom="",extracted=null}){
+function ExercicesTab({patientNom="",extracted=null,bilanContext=null}){
   const [mode,setMode]=useState(bilanContext?"bilan":"manuel");
   const [patho,setPatho]=useState("");
   const [zone,setZone]=useState("");

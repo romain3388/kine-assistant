@@ -761,8 +761,8 @@ function BilanTab({extracted,patientFromOrdo,onBilanChange=null}){
           <div className="fg"><label>Motif</label><input placeholder="Lombalgie" value={patient.motif||""} onChange={e=>setPatient({...patient,motif:e.target.value})}/></div>
         </div>
         <div className="fg" style={{marginBottom:14}}>
-          <label>Contexte ATCD chirurgie</label>
-          <textarea placeholder="Post-op LCA..." value={patient.context} onChange={e=>setPatient({...patient,context:e.target.value})} style={{minHeight:60}}/>
+          <label>Motif de consultation</label>
+          <textarea placeholder="Douleur épaule droite depuis 3 mois..." value={patient.context} onChange={e=>setPatient({...patient,context:e.target.value})} style={{minHeight:60}}/>
         </div>
         <div style={{background:C.card2,border:"1px solid #1A2535",borderRadius:12,padding:"13px 15px"}}>
           <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",flexWrap:"wrap",gap:10,marginBottom:documents.length>0?12:0}}>
@@ -2460,7 +2460,7 @@ const MUSCLE_TO_DB={
   trap:"trap",scm:"scm",masseter:"masseter",m1:"abdo",
 };
 
-function ExercicesTab({patientNom="",extracted=null,bilanContext=null}){
+function ExercicesTab({patientNom="",extracted=null}){
   const [mode,setMode]=useState(bilanContext?"bilan":"manuel");
   const [patho,setPatho]=useState("");
   const [zone,setZone]=useState("");

@@ -568,7 +568,7 @@ function CoordonneesTab({extracted,setExtracted,setPatientFromOrdo}){
     }catch(e){alert("Extraction échouée: "+(e.message||"Erreur inconnue"));}
     setLoading(false);
   };
-  const save=()=>{setPatientFromOrdo({nom:m.nom,email:m.email,telephone:m.telephone});setSaved(true);setTimeout(()=>setSaved(false),2500);};
+  const save=()=>{setPatientFromOrdo({nom:m.nom,email:m.email,telephone:m.telephone});if(m.nom){const s=JSON.parse(localStorage.getItem("kine_suivi_v3")||"[]");if(!s.find(x=>x.patient===m.nom)){s.push({id:Date.now(),patient:m.nom,date:new Date().toLocaleDateString("fr-FR"),seances:[]});localStorage.setItem("kine_suivi_v3",JSON.stringify(s));}}setSaved(true);setTimeout(()=>setSaved(false),2500);};
   return(
     <div>
       <div className="card">
